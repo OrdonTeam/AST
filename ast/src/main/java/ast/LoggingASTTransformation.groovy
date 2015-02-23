@@ -13,7 +13,7 @@ import org.codehaus.groovy.control.CompilePhase;
 import org.codehaus.groovy.control.*;
 import org.codehaus.groovy.transform.*;
 
-@GroovyASTTransformation(phase= CompilePhase.CANONICALIZATION)
+@GroovyASTTransformation(phase= CompilePhase.SEMANTIC_ANALYSIS)
 public class LoggingASTTransformation implements ASTTransformation {
 
     public void visit(ASTNode[] nodes, SourceUnit sourceUnit) {
