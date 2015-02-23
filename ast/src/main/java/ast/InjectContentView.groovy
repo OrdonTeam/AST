@@ -10,7 +10,7 @@ import java.lang.annotation.Target
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-@GroovyASTTransformationClass("ast.InjectContentViewTransformation")
+@GroovyASTTransformationClass( classes = InjectContentViewTransformation )
 @interface InjectContentView {
     int value()
 }
