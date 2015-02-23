@@ -4,6 +4,7 @@ import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
 import groovy.transform.TypeChecked
 import org.codehaus.groovy.ast.*
+import org.codehaus.groovy.ast.builder.AstBuilder
 import org.codehaus.groovy.ast.expr.ArgumentListExpression
 import org.codehaus.groovy.ast.expr.ConstantExpression
 import org.codehaus.groovy.ast.expr.MethodCallExpression
@@ -62,7 +63,7 @@ public class InjectContentViewTransformation extends AbstractASTTransformation {
         final BlockStatement body = new BlockStatement();
         body.addStatement(superOnCreate())
         body.addStatement(statementSetContentView(layout))
-        classNode.addMethod(new MethodNode('onCreate', ACC_PUBLIC, ClassHelper.void_WRAPPER_TYPE,
+        classNode.addMethod(new MethodNode('onCreate', ACC_PUBLIC, ClassHelper.VOID_TYPE,
                 params(param(make(Object), 'savedInstanceState')),
                 ClassNode.EMPTY_ARRAY,
                 body))
