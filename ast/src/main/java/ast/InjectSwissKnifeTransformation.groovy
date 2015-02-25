@@ -58,7 +58,7 @@ class InjectSwissKnifeTransformation extends AbstractASTTransformation{
 
     @CompileDynamic
     private static void extendExistingMethod(ClassNode classNode) {
-        classNode.getMethods('setContentView').each { MethodNode methodNode ->
+        classNode.getDeclaredMethods('setContentView').each { MethodNode methodNode ->
             Statement injectSwissKnife = statementInjectSwissKnife()
             methodNode.getCode().getStatements().add(1, injectSwissKnife)
         }
